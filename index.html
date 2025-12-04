@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carta</title>
+  <style>
+    :root{
+      --bg:#000;
+      --card-bg: rgba(255,255,255,0.03);
+      --text-purple: #b66af2;
+      --neon-gold: 0 0 18px rgba(255, 215, 0, 0.9), 0 0 32px rgba(255, 215, 0, 0.5);
+      --glow-white: 0 0 12px rgba(255,255,255,0.07);
+      --accent: #ffd54a;
+      --max-width: 760px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text-purple);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .wrapper{
+      width:100%;
+      max-width:var(--max-width);
+      text-align:center;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: var(--neon-gold), 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,215,0,0.14);
+      transform: translateZ(0);
+    }
+
+    .letter{
+      color:var(--text-purple);
+      text-align:left;
+      line-height:1.6;
+      font-size:18px;
+      padding: 12px 18px;
+      border-radius:12px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+      box-shadow: var(--glow-white);
+    }
+
+    .letter h1{
+      margin:0 0 8px 0;
+      font-size:22px;
+      color:var(--text-purple);
+    }
+
+    .signature{
+      margin-top:18px;
+      font-weight:600;
+    }
+
+    .sticker-row{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    /* Botón */
+    .controls{
+      margin-top:22px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+    }
+
+    button.sorpresa{
+      background: linear-gradient(90deg, rgba(182,106,242,0.12), rgba(255,215,0,0.04));
+      color:var(--text-purple);
+      border: 1px solid rgba(182,106,242,0.25);
+      padding:12px 20px;
+      font-size:16px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+      transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    }
+
+    button.sorpresa:active{ transform: translateY(1px) scale(.997); }
+    button.sorpresa[aria-expanded="true"]{
+      box-shadow: var(--neon-gold);
+    }
+
+    /* Texto sorpresa (oculto inicialmente) */
+    .sorpresa-text{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:none;
+      color:#fff;
+      font-size:18px;
+      line-height:1.5;
+      text-align:left;
+      box-shadow: var(--neon-gold);
+    }
+
+    .sorpresa-text.show{
+      display:block;
+      animation: fadeInUp .45s ease;
+    }
+
+    @keyframes fadeInUp{
+      from { transform: translateY(8px); opacity:0; }
+      to   { transform: translateY(0); opacity:1; }
+    }
+
+    /* Estética responsiva */
+    @media (max-width:600px){
+      .letter{ font-size:16px; padding:12px; }
+      .card{ padding:20px; }
+      button.sorpresa{ width:100%; }
+    }
+
+    /* pequeño borde neón dorado alrededor del texto principal (estético) */
+    .neon-outline{
+      position:relative;
+    }
+    .neon-outline::after{
+      content:"";
+      position:absolute;
+      inset:-6px;
+      border-radius:14px;
+      pointer-events:none;
+      box-shadow: var(--neon-gold);
+      opacity:0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card neon-outline" role="article" aria-label="Carta de amor">
+      <div class="letter">
+        <h1>Hola, mi amor,</h1>
+
+        <p>Hace días que pienso en ti y cada recuerdo me saca una sonrisa. Echo de menos esas pequeñas cosas que solo nosotros entendemos: la risa en el bus, las canciones que se nos quedan sonando en la cabeza, y esos momentos tranquilos en los que simplemente estamos juntos.</p>
+
+        <p>Me falta compartir más ratos contigo: esas conversaciones suaves, tu forma de hablarme, y cómo tu presencia hace que todo se sienta un poco más ligero.</p>
+
+        <p>Cada día que pasa te pienso más. No importa si a veces la distancia o el tiempo no ayudan, mi cariño por ti no se detiene: crece y se hace más fuerte.</p>
+
+        <p>Valoro cada instante contigo, incluso los más simples. Prometo cuidarte, escucharte y buscar siempre la forma de hacerte sentir querida. Imaginar tus ojitos me arregla el día sin que tengas que hacer nada más.</p>
+
+        <p>Gracias por ser mi compañera, por tu ternura, por tus palabras que me calman y por todo lo que me haces sentir sin proponértelo.</p>
+
+        <div class="signature">
+          Con todo mi amor,<br>
+          <strong>Juan K. Mendoza</strong>
+        </div>
+
+        <div class="sticker-row" aria-hidden="true">
+          <span>💜</span>
+          <span>✨</span>
+          <span>🌙</span>
+        </div>
+      </div>
+
+      <div class="controls" style="margin-top:20px;">
+        <button class="sorpresa" id="btnSorpresa" aria-expanded="false" aria-controls="sorpresaText">
+          Sorpresa 🎁
+        </button>
+      </div>
+
+      <div id="sorpresaText" class="sorpresa-text" role="region" aria-live="polite" aria-hidden="true">
+        <!-- El texto sorpresa que pediste queda exactamente aquí -->
+        <p><strong>Mi princesa hermosa Valeria Isabel Petro Villazón.</strong></p>
+
+        <p>Quiero que sepas que eres la razón por la que mis días son más bonitos. Tu sonrisa, tu voz y tu forma de ser hacen que te adore más y más. Gracias por existir y por hacerme sentir tan afortunado.</p>
+
+        <p>Te quiere,<br>
+        Juan K Mendoza P 💜</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('btnSorpresa');
+      const box = document.getElementById('sorpresaText');
+
+      btn.addEventListener('click', function(){
+        const isShown = box.classList.toggle('show');
+        btn.setAttribute('aria-expanded', String(isShown));
+        box.setAttribute('aria-hidden', String(!isShown));
+
+        // Si quieres que el botón se desactive después de revelar, descomenta:
+        // if (isShown) btn.disabled = true;
+      });
+
+      // accesibilidad: abrir con Enter/Space ya manejado por botón nativo
+    })();
+  </script>
+</body>
+</html>
